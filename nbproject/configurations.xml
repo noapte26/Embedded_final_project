@@ -4,8 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>DIO.h</itemPath>
       <itemPath>MyINT0.h</itemPath>
+      <itemPath>MyINT1.h</itemPath>
+      <itemPath>MyTimers.h</itemPath>
+      <itemPath>MyLCD_4bit.h</itemPath>
+      <itemPath>MyDIO.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -21,6 +24,10 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>MyINT0.c</itemPath>
+      <itemPath>MyINT1.c</itemPath>
+      <itemPath>MyTimers.c</itemPath>
+      <itemPath>MyLCD_4bit.c</itemPath>
+      <itemPath>MyDIO.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

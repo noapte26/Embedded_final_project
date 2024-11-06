@@ -1,0 +1,161 @@
+/* 
+ * File:   MyTimers.h
+ * Author: hebai
+ *
+ * Created on October 26, 2024, 3:49 PM
+ */
+
+#ifndef MYTIMERS_H
+#define	MYTIMERS_H
+
+
+#include <avr/io.h>
+
+// TIMER0 MODES
+#define TIMER0_NORMAL  0 
+#define TIMER0_PCPWM    1
+#define TIMER0_CTC    2
+#define TIMER0_FASTPWM   3
+
+//TIMER CLOCKS
+#define CLK_NO 0 
+#define CLK   1
+#define CLK_8    2
+#define CLK_64   3
+#define CLK_256  4
+#define CLK_1024  5  
+#define CLK_FALLING_EDGE  6 
+#define CLK_RISISNG_EDGE  7
+
+//TIMER0 OCR0 VALUE
+#define TIMER0_OCR_VAL   125
+
+//TIMER0 OC PIN
+#define OC0 PB3
+
+//TIMER0 COM SETTING FOR CTC MODE
+#define OC0_CTC_DISABLE  0
+#define OC0_CTC_TOGGLE  1
+#define OC0_CTC_CLEAR  2
+#define OC0_CTC_SET  3
+
+
+//TIMER0 COM SETTING FOR PCPWM MODE
+#define OC0_PWM_CORRECT_CLEAR_UP  2
+#define OC0_PWM_CORRECT__SET_UP  3
+
+//TIMER0 COM SETTING FOR FAST PWM MODE
+#define OC0_PWM_FAST_CLEAR_  2
+#define OC0_PWM_CORRECT__SET  3
+
+// TIMER2 MODES
+#define TIMER2_NORMAL  0 
+#define TIMER2_PCPWM    1
+#define TIMER2_CTC    2
+#define TIMER2_FASTPWM   3
+
+
+//TIMER2 OCR2 VALUE
+#define TIMER2_OCR_VAL   125
+
+//TIMER2 OC PIN
+#define OC2 PD7
+
+//TIMER2 COM SETTING FOR CTC MODE
+#define OC2_CTC_DISABLE  0
+#define OC2_CTC_TOGGLE  1
+#define OC2_CTC_CLEAR  2
+#define OC1_CTC_SET  3
+
+
+//TIMER2 COM SETTING FOR PCPWM MODE
+#define OC2_PWM_CORRECT_CLEAR_UP  2
+#define OC2_PWM_CORRECT__SET_UP  3
+
+//TIMER2 COM SETTING FOR FAST PWM MODE
+#define OC2_FAST_PWM_NONINVERTING 2
+#define OC2_FAST_PWM_INVERTING  3
+
+
+// TIMER1 MODES
+#define TIMER1_NORMAL  0
+#define TIMER1_PCPWM_8BIT  1
+#define TIMER1_PCPWM_9BIT  2
+#define TIMER1_PCPWM_10BIT  3
+#define TIMER1_CTC_OCR1A_TOP  4
+#define TIMER1_FASTPWM_8BIT  5
+#define TIMER1_FASTPWM_9BIT  6
+#define TIMER1_FASTPWM_10BIT  7
+#define TIMER1_PFCPWM_ICR1_TOP  8
+#define TIMER1_PFCPWM_OCR1A_TOP  9
+#define TIMER1_PCPWM_ICR1_TOP  10
+#define TIMER1_PCPWM_OCR1A_TOP  11
+#define TIMER1_CTC_ICR1_TOP  12
+//RESERVED #define TIMER1_NORMAL  
+#define TIMER1_FASTPWM_ICR1_TOP  14
+#define TIMER1_FASTPWM_OCR1A_TOP  15
+
+//TIMER1 OCR1A, OCR1B VALUE
+#define TIMER1_OCR1A_VAL   125
+#define TIMER1_OCR1B_VAL   125
+
+//TIMER1 ICR1 VALUE USEING IT AS TOP
+#define TIMER1_ICR_VAL   125
+
+//TIMER1 COM1A,B SETTING FOR CTC MODE
+#define OC1_CTC_DISABLE  0
+#define OC1_CTC_TOGGLE  1
+#define OC1_CTC_CLEAR  2
+#define OC1_CTC_SET  3
+
+
+//TIMER1 COM1A,B SETTING FOR FAST PWM MODE
+#define OC1A_TOGGLE_ON_CM_MODE15  1
+#define NON_INVERTING_CLEAR_OC1A_B_ON_CM  2
+#define INVERTING_SET_OC1A_B_ON_CM    3
+
+//TIMER1 COM1A,B SETTING FOR PHASE AND FREQ CORRECT PWM MODE
+#define OC1A_TOGGEL_ON_CM_MODE9_14  1
+#define NON_INVERTING_CLEAR_OC1A_B_UPCOUNTING  2
+#define INVERTING_SET_OCR1A_B_UPCOUNTING    3
+
+// input capture from ic pin edge mode
+#define FALLING_EDGE  0
+#define RISING_EDGE  1
+
+
+void initTimer0(char timerMode, char clk);
+void TIMER0_SELECTMODE(char timerMode);
+void TIMER0_SELECTCLK(char clock);
+void TIMER0_TOVI_EN();
+void TIMER0_OCI_EN();
+
+void TIMER0_OCO_INIT();
+void TIMER0_OC0_SELSECTMODE(char mode);
+
+
+void initTimer1(char, char);
+void TIMER1_SELECTMODE(char timerMode);
+void TIMER1_SELECTCLK(char clock);
+void TIMER1_TOVI_EN();
+void TIMER1_OCIA_EN();
+void TIMER1_OCIB_EN();
+void TIMER1_ICI_EN();
+void TIMER1_SET_INPUT_CAPTURE(char edge);
+
+void TIMER1_OC1A_B_INIT();
+void TIMER1_OC1A_SELSECTMODE(char mode);
+void TIMER1_OC1B_SELSECTMODE(char mode);
+
+
+void initTimer2(char timerMode, char clk);
+void TIMER2_SELECTMODE(char timerMode);
+void TIMER2_SELECTCLK(char clock);
+void TIMER2_TOVI_EN();
+void TIMER2_OCI_EN();
+
+void TIMER2_OC2_INIT();
+void TIMER2_OC2_SELSECTMODE(char mode);
+
+#endif	/* MYTIMERS_H */
+

@@ -1,12 +1,14 @@
 /* 
- * File:   DIO.h
+ * File:   MyDIO.h
  * Author: hebai
  *
- * Created on October 20, 2024, 11:55 AM
+ * Created on October 27, 2024, 11:18 PM
  */
 
-#ifndef DIO_H
-#define	DIO_H
+#ifndef MYDIO_H
+#define	MYDIO_H
+
+
 
 #include<avr/io.h>
 
@@ -81,5 +83,7 @@ char readPINC(int pinNum);
 char readPIND(int pinNum);
 
 
-#endif	/* DIO_H */
+
+
+#endif	/* MYDIO_H */
 

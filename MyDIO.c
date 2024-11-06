@@ -1,6 +1,5 @@
-
+#include "MyDIO.h"
 #include <avr/io.h>
-#include "DIO.h"
 
 
 void setPORTA_DIR_VAL(int val, int state){
@@ -220,6 +219,5 @@ char readPINC(int pinNum){
 char readPIND(int pinNum){
     return (PIND & (1<<pinNum));
 }
-
 
 
