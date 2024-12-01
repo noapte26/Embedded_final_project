@@ -10,9 +10,9 @@
 
 #define LCD_PORT_DIR DDRC
 #define LCD_PORT PORTC
-#define RS PD6 
-#define RW PD1
-#define EN PD3
+#define RS PD1
+#define RW PD4
+#define EN PD5
 #define LCD_CONTROL PORTD
 #define LCD_CONTROL_DIR DDRD
 

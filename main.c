@@ -15,85 +15,119 @@
 #include "MyINT0.h"
 #include "MyTimers.h"
 #include "MyLCD_4bit.h"
-#define CONV_RATIO  0.01715
-#define TRIG PIND0
-#define ECHO  PIND2
+#define CONV_RATIO  58 //0.000107375
+#define TRIG_PIN PD2
+#define ECHO_PIN  PD6
 
-static volatile uint16_t timer_value = 0;
-static volatile uint8_t i=0;
+static volatile int timer_value = 0;
+static volatile int i = 0;
+static volatile int overflow_count = 0;
+
+volatile uint16_t pulse_duration = 0;  // To store the pulse duration
+volatile uint8_t echo_flag = 0;        // Flag to indicate when the echo has been received
+
+
+
+// Function to initialize the ultrasonic sensor
+void init_ultrasonic_sensor() {
+    DDRD |= (1 << TRIG_PIN);  // Set TRIG_PIN as output
+    DDRD &= ~(1 << ECHO_PIN); // Set ECHO_PIN as input
+
+    // Set up Timer1 in input capture mode
+    TCCR1B |= (1 << ICES1);  // Capture on rising edge (Echo pin goes HIGH)
+    TCCR1B |= (1 << CS11);   // Prescaler of 8 (Timer counts faster)
+
+    // Enable input capture interrupt for Timer1
+    TIMSK |= (1 << TICIE1);
+    sei();  // Enable global interrupts
+}
+
+// Function to send a 10µs pulse on the TRIG_PIN
+void send_trigger_pulse() {
+    PORTD |= (1 << TRIG_PIN);  // Set the TRIG_PIN high
+    _delay_us(10);             // Wait for 10µs
+    PORTD &= ~(1 << TRIG_PIN); // Set the TRIG_PIN low
+}
+
+// Function to calculate the distance
+uint16_t calculate_distance() {
+    // Pulse duration in microseconds, distance in cm
+    
+    return pulse_duration / CONV_RATIO;
+}
+
+// Timer1 Input Capture Interrupt (when Echo pin goes high or low)
+ISR(TIMER1_CAPT_vect) {
+    static uint16_t rising_edge_time = 0;
+    
+    if (TCCR1B & (1 << ICES1)) {
+        // Rising edge: start the timer
+        rising_edge_time = ICR1;  // Capture the timer value when Echo pin goes HIGH
+        TCCR1B &= ~(1 << ICES1);  // Switch to falling edge (Echo pin goes LOW)
+    } else {
+        // Falling edge: capture the pulse duration
+        pulse_duration = ICR1 - rising_edge_time;  // Calculate the duration of the pulse
+        TCCR1B |= (1 << ICES1);  // Switch back to rising edge capture
+    }
+}
 
 
 void init_servo(){
-    TIMER2_OC2_INIT();  // setting pD7 one
-    initTimer2(3, 2);   // select fast PWM and Pre scalar of 8
-    TIMER2_OC2_SELSECTMODE(OC2_FAST_PWM_NONINVERTING);
+    //TIMER2_OC2_INIT();  // setting pD7 one
+  
+    TCCR2 |= (0 << WGM20) |(1 << WGM21); // CTC
+    TCCR2 |= (1 << COM20) | (0<< COM21); // TOGGLE
+    TCCR2 |= (1 << CS22) | (1 << CS21); // PRESCALER 256
+    DDRD|=(1<<PD7);   //PWM Pins as Out
+   
     
 }
-void set_servo_angel(uint8_t degree){
-    OCR2 = (degree* (16-8) /180) +8;
-}
+
 void servo_rotate(){
-    uint8_t degree;
-    for(degree=0 ; degree<=180 ; degree+=10){
-        set_servo_angel(degree);
-        _delay_ms(100);
+    
+    for(int i=50 ; i<=150 ; i++){
+        OCR2 = i;
+        _delay_loop_2(0);
+        _delay_loop_2(0);
+        _delay_loop_2(0);
     }
-    for(degree = 180 ; degree >= 0 ; degree-=10){
-        set_servo_angel(degree);
-        _delay_ms(100);
-    }
-}
-ISR(INT0_vect){
-    if(i==1){
-        TCCR1B = 0;  //STOP COUNTER
-        timer_value = TCNT1;   //TAKE THE VALUE FROM COUNTER
-        TCNT1 = 0;  // SET COUNYER BACK TO ZERO
-        i = 0;
-    }
-    if(i == 0){
-        TCCR1B |= (1<<CS10); // START COUNTER1 WITH FREQ 16000 000
-        i=1;
+    for(int i = 150 ; i >= 50 ; i--){
+        OCR2 = i;
+        _delay_loop_2(0);
+        _delay_loop_2(0);
+        _delay_loop_2(0);
+                
     }
 }
-void init_ultraSonic(){
-    setPIND_DIR(TRIG,OUT);  // SET TRIGGER PIN AS OUTPUT
-    setPIND_DIR(ECHO,IN);    // SET ECHO PIN AS INPUT
-            
-    init_INT0(3);  //interrupt at any logical change
+
+
     
-    sei();
-}
-void ultra_measure_disblay_distance(){
-    uint16_t distance =0;
-    
-    setPIND(TRIG, HIGH);   //send signal to trigger
-    _delay_us(10);
-    setPIND(TRIG, LOW);
-    _delay_ms(60); 
-    
-    if(timer_value > 0){
-        distance = timer_value * CONV_RATIO;
-        LCD4_CLEAR();
-        LCD4_DATA_STR("Distance:");
-        LCD4_DATA_NUM(distance);
-        LCD4_DATA_STR("cm");
-        
-        timer_value = 0;
-    }
-    
-    
-    
-    
-}
+ 
+
+  
 int main(void) {
     /* Replace with your application code */
     init_LCD4();
-    init_ultraSonic();
+    init_ultrasonic_sensor();
+    //init_ultraSonic();
+    uint16_t pulse_duration;
+    uint32_t distance;
     
-   //LCD4_DATA_STR("Ultrasonic Test");
+    
+      
+   
     while (1) {
-        ultra_measure_disblay_distance();
-        _delay_ms(500);
+      
+        send_trigger_pulse();  // Trigger the ultrasonic sensor
+        _delay_ms(60);         // Wait for the sensor to settle
+
+        distance = (calculate_distance())/2;  // Calculate the distance
+        LCD4_CLEAR();
+        LCD4_DATA_NUM(distance);  // Display the distance
+        _delay_ms(500);  // Delay between readings
+       
+       
+      
         
     }
 }

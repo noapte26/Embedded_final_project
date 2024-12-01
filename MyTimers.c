@@ -32,10 +32,10 @@ void TIMER0_SELECTMODE(char timerMode) {
     }
 }
 
-void TIMER0_SELECTCLK(char clock) {
+/*void TIMER0_SELECTCLK(char clock) {
     TCCR0 &= ~((1 << CS02) | (1 << CS01) | (1 << CS00));
     TCCR0 |= clock;
-}
+}*/
 
 void TIMER0_TOVI_EN() {
     TIMSK |= (1 << TOIE0);
@@ -75,7 +75,7 @@ void TIMER2_SELECTMODE(char timerMode) {
         case 2:
             TCCR2 |= ((0 << WGM20) | (1 << WGM21));
             TIMER2_OCI_EN();
-            OCR2 = TIMER0_OCR_VAL;
+            //OCR2 = TIMER0_OCR_VAL;
 
             break;
         case 3:
@@ -94,7 +94,7 @@ void TIMER2_TOV2_EN() {
     TIMSK |= (1 << TOIE2);
 }
 
-void TIMER2_OC2_EN() {
+void TIMER2_OCI_EN() {
     TIMSK |= (1 << OCIE2);
 }
 

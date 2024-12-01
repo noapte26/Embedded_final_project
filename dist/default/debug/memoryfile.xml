@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/obstacle_avoiding_car.X.production.elf">                 
+  <executable name="dist/default/debug/obstacle_avoiding_car.X.debug.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>1302</used>                     
-      <free>31466</free>                     
+      <used>2062</used>                     
+      <free>30706</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
       <length>2048</length>                 
-      <used>4</used>                     
-      <free>2044</free>                     
+      <used>6</used>                     
+      <free>2042</free>                     
     </memory>                              
   </executable>                            
 </project>                                 
