@@ -8,13 +8,13 @@
 #ifndef MYLCD_4BIT_H
 #define	MYLCD_4BIT_H
 
-#define LCD_PORT_DIR DDRC
-#define LCD_PORT PORTC
-#define RS PD1
-#define RW PD4
-#define EN PD5
-#define LCD_CONTROL PORTD
-#define LCD_CONTROL_DIR DDRD
+#define LCD_PORT_DIR DDRA
+#define LCD_PORT PORTA
+#define RS PB1
+#define RW PB2
+#define EN PB3
+#define LCD_CONTROL PORTB
+#define LCD_CONTROL_DIR DDRB
 
 
  // LCD COMMAND CODES

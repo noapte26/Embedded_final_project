@@ -9,6 +9,13 @@
       <itemPath>MyTimers.h</itemPath>
       <itemPath>MyLCD_4bit.h</itemPath>
       <itemPath>MyDIO.h</itemPath>
+      <itemPath>Leds.h</itemPath>
+      <itemPath>myMotor.h</itemPath>
+      <itemPath>myMotor.c</itemPath>
+      <itemPath>myServo.h</itemPath>
+      <itemPath>myServo.c</itemPath>
+      <itemPath>myUltrasonic.h</itemPath>
+      <itemPath>myUltrasonic.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -28,6 +35,7 @@
       <itemPath>MyTimers.c</itemPath>
       <itemPath>MyLCD_4bit.c</itemPath>
       <itemPath>MyDIO.c</itemPath>
+      <itemPath>Leds.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

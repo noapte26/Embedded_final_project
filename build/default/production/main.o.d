@@ -16,7 +16,7 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  c:\program\ files\microchip\xc8\v2.46\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.46\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.46\avr\avr\include\math.h MyDIO.h \
- MyINT0.h MyTimers.h MyLCD_4bit.h
+ MyINT0.h MyTimers.h MyLCD_4bit.h Leds.h
 
 c:\program\ files\microchip\xc8\v2.46\avr\avr\include\avr\io.h:
 
@@ -59,3 +59,5 @@ MyINT0.h:
 MyTimers.h:
 
 MyLCD_4bit.h:
+
+Leds.h:

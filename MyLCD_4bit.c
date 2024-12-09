@@ -76,13 +76,13 @@ void LCD4_DATA(char data){
 }
 void init_LCD4(){
     // DIO
-    setPORTC_DIR_VAL(0XF0, OUT);
-    setPIND_DIR(RS, OUT);
-    setPIND_DIR(RW, OUT);
-    setPIND_DIR(EN, OUT);
+    setPORTA_DIR_VAL(0XF0, OUT);
+    setPINB_DIR(RS, OUT);
+    setPINB_DIR(RW, OUT);
+    setPINB_DIR(EN, OUT);
     _delay_ms(20);
     //LCD SETUP
-    setPIND(RS, LOW);
+    setPINB(RS, LOW);
     //RETURN HOME
     LCD4_COMMAND(RETURN_HOME);
     //SET MODE

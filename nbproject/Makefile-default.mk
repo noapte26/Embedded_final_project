@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c MyINT0.c MyINT1.c MyTimers.c MyLCD_4bit.c MyDIO.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c MyINT0.c MyINT1.c MyTimers.c MyLCD_4bit.c MyDIO.c Leds.c myMotor.c myServo.c myUltrasonic.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/MyINT0.o ${OBJECTDIR}/MyINT1.o ${OBJECTDIR}/MyTimers.o ${OBJECTDIR}/MyLCD_4bit.o ${OBJECTDIR}/MyDIO.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/MyINT0.o.d ${OBJECTDIR}/MyINT1.o.d ${OBJECTDIR}/MyTimers.o.d ${OBJECTDIR}/MyLCD_4bit.o.d ${OBJECTDIR}/MyDIO.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/MyINT0.o ${OBJECTDIR}/MyINT1.o ${OBJECTDIR}/MyTimers.o ${OBJECTDIR}/MyLCD_4bit.o ${OBJECTDIR}/MyDIO.o ${OBJECTDIR}/Leds.o ${OBJECTDIR}/myMotor.o ${OBJECTDIR}/myServo.o ${OBJECTDIR}/myUltrasonic.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/MyINT0.o.d ${OBJECTDIR}/MyINT1.o.d ${OBJECTDIR}/MyTimers.o.d ${OBJECTDIR}/MyLCD_4bit.o.d ${OBJECTDIR}/MyDIO.o.d ${OBJECTDIR}/Leds.o.d ${OBJECTDIR}/myMotor.o.d ${OBJECTDIR}/myServo.o.d ${OBJECTDIR}/myUltrasonic.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/MyINT0.o ${OBJECTDIR}/MyINT1.o ${OBJECTDIR}/MyTimers.o ${OBJECTDIR}/MyLCD_4bit.o ${OBJECTDIR}/MyDIO.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/MyINT0.o ${OBJECTDIR}/MyINT1.o ${OBJECTDIR}/MyTimers.o ${OBJECTDIR}/MyLCD_4bit.o ${OBJECTDIR}/MyDIO.o ${OBJECTDIR}/Leds.o ${OBJECTDIR}/myMotor.o ${OBJECTDIR}/myServo.o ${OBJECTDIR}/myUltrasonic.o
 
 # Source Files
-SOURCEFILES=main.c MyINT0.c MyINT1.c MyTimers.c MyLCD_4bit.c MyDIO.c
+SOURCEFILES=main.c MyINT0.c MyINT1.c MyTimers.c MyLCD_4bit.c MyDIO.c Leds.c myMotor.c myServo.c myUltrasonic.c
 
 
 
@@ -124,6 +124,30 @@ ${OBJECTDIR}/MyDIO.o: MyDIO.c  .generated_files/flags/default/89557bbaef2d4a378f
 	@${RM} ${OBJECTDIR}/MyDIO.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/MyDIO.o.d" -MT "${OBJECTDIR}/MyDIO.o.d" -MT ${OBJECTDIR}/MyDIO.o -o ${OBJECTDIR}/MyDIO.o MyDIO.c 
 	
+${OBJECTDIR}/Leds.o: Leds.c  .generated_files/flags/default/4d631bd4b2b3c6df746ce0d0eaec491d8d72a763 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Leds.o.d 
+	@${RM} ${OBJECTDIR}/Leds.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/Leds.o.d" -MT "${OBJECTDIR}/Leds.o.d" -MT ${OBJECTDIR}/Leds.o -o ${OBJECTDIR}/Leds.o Leds.c 
+	
+${OBJECTDIR}/myMotor.o: myMotor.c  .generated_files/flags/default/818c2de8af27595a0d8c52e9793b9d34c8cc6902 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myMotor.o.d 
+	@${RM} ${OBJECTDIR}/myMotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myMotor.o.d" -MT "${OBJECTDIR}/myMotor.o.d" -MT ${OBJECTDIR}/myMotor.o -o ${OBJECTDIR}/myMotor.o myMotor.c 
+	
+${OBJECTDIR}/myServo.o: myServo.c  .generated_files/flags/default/2799e17fc5fc87c837e6a717b32b45a8c5451c48 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myServo.o.d 
+	@${RM} ${OBJECTDIR}/myServo.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myServo.o.d" -MT "${OBJECTDIR}/myServo.o.d" -MT ${OBJECTDIR}/myServo.o -o ${OBJECTDIR}/myServo.o myServo.c 
+	
+${OBJECTDIR}/myUltrasonic.o: myUltrasonic.c  .generated_files/flags/default/ea1ffef84c8c246995987c9261ffa269dd567089 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myUltrasonic.o.d 
+	@${RM} ${OBJECTDIR}/myUltrasonic.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myUltrasonic.o.d" -MT "${OBJECTDIR}/myUltrasonic.o.d" -MT ${OBJECTDIR}/myUltrasonic.o -o ${OBJECTDIR}/myUltrasonic.o myUltrasonic.c 
+	
 else
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/f32be555433c952c573c84a87c515aa659eec727 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
@@ -160,6 +184,30 @@ ${OBJECTDIR}/MyDIO.o: MyDIO.c  .generated_files/flags/default/4c49173d7fffe977ef
 	@${RM} ${OBJECTDIR}/MyDIO.o.d 
 	@${RM} ${OBJECTDIR}/MyDIO.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/MyDIO.o.d" -MT "${OBJECTDIR}/MyDIO.o.d" -MT ${OBJECTDIR}/MyDIO.o -o ${OBJECTDIR}/MyDIO.o MyDIO.c 
+	
+${OBJECTDIR}/Leds.o: Leds.c  .generated_files/flags/default/f890e0d50e42a65d0af19f818866735e78917e46 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Leds.o.d 
+	@${RM} ${OBJECTDIR}/Leds.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/Leds.o.d" -MT "${OBJECTDIR}/Leds.o.d" -MT ${OBJECTDIR}/Leds.o -o ${OBJECTDIR}/Leds.o Leds.c 
+	
+${OBJECTDIR}/myMotor.o: myMotor.c  .generated_files/flags/default/edecfda64c2b2356a8de49311650a31368d9d8ba .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myMotor.o.d 
+	@${RM} ${OBJECTDIR}/myMotor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myMotor.o.d" -MT "${OBJECTDIR}/myMotor.o.d" -MT ${OBJECTDIR}/myMotor.o -o ${OBJECTDIR}/myMotor.o myMotor.c 
+	
+${OBJECTDIR}/myServo.o: myServo.c  .generated_files/flags/default/515c0ea3af3fcc37a12a65cd8dff46803301f478 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myServo.o.d 
+	@${RM} ${OBJECTDIR}/myServo.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myServo.o.d" -MT "${OBJECTDIR}/myServo.o.d" -MT ${OBJECTDIR}/myServo.o -o ${OBJECTDIR}/myServo.o myServo.c 
+	
+${OBJECTDIR}/myUltrasonic.o: myUltrasonic.c  .generated_files/flags/default/c552f6e49232506cfa709be9482395c316caa2d5 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/myUltrasonic.o.d 
+	@${RM} ${OBJECTDIR}/myUltrasonic.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mno-const-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/myUltrasonic.o.d" -MT "${OBJECTDIR}/myUltrasonic.o.d" -MT ${OBJECTDIR}/myUltrasonic.o -o ${OBJECTDIR}/myUltrasonic.o myUltrasonic.c 
 	
 endif
 

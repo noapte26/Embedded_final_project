@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myMotor.h</file>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myUltrasonic.c</file>
             <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/main.c</file>
-            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/MyINT0.c</file>
-            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/MyTimers.h</file>
-            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/MyTimers.c</file>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myServo.h</file>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myUltrasonic.h</file>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myMotor.c</file>
+            <file>file:/C:/Users/hebai/MPLABXProjects/obstacle_avoiding_car.X/myServo.c</file>
         </group>
     </open-files>
 </project-private>
